@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mutations version="1.1">
+  <files>
+    
+  </files>
+
+  <rules> 
+    <!-- Aritméticos -->
+    <literal text="+" id="builtin.op.add">
+      <mutation text="-"/>
+      <mutation text="*"/>
+      <mutation text="/"/>
+    </literal>
+    <literal text="-" id="builtin.op.sub">
+      <mutation text="+"/>
+      <mutation text="*"/>
+      <mutation text="/"/>
+    </literal>
+    <literal text="*" id="builtin.op.mul">
+      <mutation text="+"/>
+      <mutation text="-"/>
+      <mutation text="/"/>
+    </literal>
+    <literal text="/" id="builtin.op.div">
+      <mutation text="+"/>
+      <mutation text="-"/>
+      <mutation text="*"/>
+    </literal>
+
+    <!-- Lógicos -->
+    <literal text="&&" id="builtin.logical.and">
+      <mutation text="||"/>
+    </literal>
+    <literal text="||" id="builtin.logical.or">
+      <mutation text="&&"/>
+    </literal>
+
+    <!-- Relacionales -->
+    <literal text="==" id="builtin.rel.eq">
+      <mutation text="!="/>
+    </literal>
+    <literal text="!=" id="builtin.rel.neq">
+      <mutation text="=="/>
+    </literal>
+    <literal text=">" id="builtin.rel.gt">
+      <mutation text="<"/>
+      <mutation text=">="/>
+    </literal>
+    <literal text="<" id="builtin.rel.lt">
+      <mutation text=">"/>
+      <mutation text="<="/>
+    </literal>
+    <literal text=">=" id="builtin.rel.ge">
+      <mutation text="=="/>
+      <mutation text=">"/>
+    </literal>
+    <literal text="<=" id="builtin.rel.le">
+      <mutation text="=="/>
+      <mutation text="<"/>
+    </literal>
+
+    <!-- Eliminación de Condicionales -->
+    <regex pattern="[\s]if[\s]*\((.*?)\)[\s]*{" dotAll="true" id="builtin.if">
+      <mutation text=" if (!($1)) {"/>
+    </regex>
+  </rules>
+
+  <exclude>
+    <!-- Excluyendo comentarios y bloques específicos -->
+    <token begin="//" end="\n"/>
+    <token begin="#" end="\n"/>
+    <regex pattern="/[*].*?[*]/" dotAll="true"/>
+    <!-- Excluyendo loops para prevenir pruebas infinitas -->
+    <regex pattern="[\s]for[\s]*\(.*?\)[\s]*{" dotAll="true"/>
+    <regex pattern="[\s]while[\s]*\(.*?\)[\s]*{.*?}" dotAll="true"/>
+    <!-- Excluyendo líneas específicas -->
+    <lines begin="1" end="2"/>
+  </exclude>
+
+  <commands>
+    <!-- Comandos para ejecutar las pruebas -->
+    <command group="test" expected-return="0" working-directory="." timeout="5000">flutter test test/presentation/providers/counter_provider_test.dart/</command>
+  </commands>
+</mutations>

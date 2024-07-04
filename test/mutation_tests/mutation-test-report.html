@@ -339,7 +339,7 @@ td.barBg
      <table width="100%" cellpadding="1" border="0">
      <tbody><tr>
      <td class="ItemLabel" width="10%">Current display:</td>
-     <td class="ItemText" width="35%">lib/main.dart - <a href="../mutation-test-report.html">back to top</a></td>
+     <td class="ItemText" width="35%">top level</td>
      <td width="10%"></td>
      <td class="MiddleHeader" width="15%">Detected</td>
      <td class="MiddleHeader" width="15%">Total</td>
@@ -348,22 +348,30 @@ td.barBg
 
      <tr>
      <td class="ItemLabel" width="10%">Date:</td>
-     <td class="ItemText" width="35%">2024-07-04 01:21:30.602418</td>
+     <td class="ItemText" width="35%">2024-07-04 14:37:13.159121</td>
      <td class="ItemLabel" width="10%">Mutations:</td>
-     <td class="ItemReport" width="15%">1</td>
-     <td class="ItemReport" width="15%">1</td>
-     <td class="ItemReportHigh" width="15%">100.0 %</td>
+     <td class="ItemReport" width="15%">21</td>
+     <td class="ItemReport" width="15%">23</td>
+     <td class="ItemReportHigh" width="15%">91.3 %</td>
      </tr>
      
      <tr>
      <td class="ItemLabel" width="10%">Builtin rules:</td>
-     <td class="ItemText" width="35%">true</td>
+     <td class="ItemText" width="35%">false</td>
      <td class="ItemLabel" width="10%">Blocked:</td>
      <td class="ItemReport" width="15%">0</td>
-     <td class="ItemReport" width="15%">1</td>
+     <td class="ItemReport" width="15%">23</td>
      <td class="ItemReportHigh" width="15%">0.0 %</td>
      </tr>
-     </tbody>
+     <tr>
+     <td class="ItemLabel" width="10%">Quality rating:</td>
+     <td class="ItemText" width="35%">B</td>
+     <td class="ItemLabel" width="10%">Success:</td>
+     <td class="ItemText" width="15%">true</td>
+     <td class="ItemText" width="15%"></td>
+     <td class="ItemText" width="15%"></td>
+     </tr>
+       </tbody>
      </table>
      </td>
      </tr>
@@ -373,70 +381,28 @@ td.barBg
      <tr><td><hr class="ruler"/></td></tr>
 </table>
 
-<pre class="fileHeader">          Source code</pre>
-<pre class="fileContents">
-<a name="1"><span class="lineNumber">       1 </span>import 'package:flutter/material.dart';</a>
-<a name="2"><span class="lineNumber">       2 </span>import 'package:provider/provider.dart';</a>
-<a name="3"><span class="lineNumber">       3 </span></a>
-<a name="4"><span class="lineNumber">       4 </span>import 'core/constants/app_theme.dart';</a>
-<a name="5"><span class="lineNumber">       5 </span>import 'presentation/pages/home_page.dart';</a>
-<a name="6"><span class="lineNumber">       6 </span>import 'presentation/providers/counter_provider.dart';</a>
-<a name="7"><span class="lineNumber">       7 </span></a>
-<a name="8"><span class="lineNumber">       8 </span>void main() {</a>
-<a name="9"><span class="lineNumber">       9 </span>  runApp(const MyApp());</a>
-<a name="10"><span class="lineNumber">      10 </span>}</a>
-<a name="11"><span class="lineNumber">      11 </span></a>
-<a name="12"><span class="lineNumber">      12 </span>class MyApp extends StatelessWidget {</a>
-<a name="13"><span class="lineNumber">      13 </span>  const MyApp({Key? key}) : super(key: key);</a>
-<a name="14"><span class="lineNumber">      14 </span></a>
-<a name="15"><span class="lineNumber">      15 </span>  @override</a>
-<a name="16"><span class="lineNumber">      16 </span>  Widget build(BuildContext context) {</a>
-<a name="17"><span class="lineNumber">      17 </span>    return MultiProvider(</a>
-<a name="18"><span class="lineNumber">      18 </span>      providers: [</a>
-<a name="19"><span class="lineNumber">      19 </span>        ChangeNotifierProvider(create: (_) =&gt; CounterProvider()),</a>
-<a name="20"><span class="lineNumber">      20 </span>      ],</a>
-<a name="21"><span class="lineNumber">      21 </span>      child: MaterialApp(</a>
-<a name="22"><span class="lineNumber">      22 </span>        debugShowCheckedModeBanner: false,</a>
-<a name="23"><span class="lineNumber">      23 </span>        title: 'Flutter Mutation Test Example',</a>
-<a name="24"><span class="lineNumber">      24 </span>        theme: AppTheme.lightTheme,</a>
-<a name="25"><span class="lineNumber">      25 </span>        darkTheme: AppTheme.darkTheme,</a>
-<a name="26"><span class="lineNumber">      26 </span>        themeMode: ThemeMode.system,</a>
-<a name="27"><button class="collapsible hit"><pre class="fileContents"><span class="lineNumber">      27 </span>        home: const HomePage(title: 'Flutter Mutation Test Example 2.0'),</pre></button>
-<div class="content">
-<b>Detected mutations:</b>
-<table class="mutationTable" width="100%">
-<tr><td class="mutationLabel" width="5%">1 :</td><td class="mutationText" width="87%"><span class="addedLine">+         home: const HomePage(title: 'Flutter Mutation Test Example<span class="changedTokens"> -2.0</span>'),</span></td><td class="match">RegExp: pattern=([\s=\(])([1-9\.]+[0-9]+|0\.0*[1-9]) flags=m<span class="tooltip">Id: builtin.number.negative</span></td></tr></table>
+<center>
+<table width ="80%" cellspacing="1" border="0">
+     <tbody>
+     <tr><td width="60%"></td><td width="10%"></td><td width="10%"></td><td width="10%"></td><td width="10%"></td></tr>
+     <tr><td class="ItemHead" width="60%">Path</td><td class="ItemHead" width="30%" colspan="3">Detection rate</td><td class="ItemHead" width="10%">Blocked</td></tr>
+<tr><td class="FileLink" width="60%"><a href="lib/presentation/providers/counter_provider.dart.html">lib/presentation/providers/counter_provider.dart</a></td>
+  <td class="ItemReport" width="10%">
+  <table width="100%" cellpadding="0" border="1"><tr>
+    <td class="barHi" width="91.30434782608695%" height="10"></td>
+    <td class="barBg" width="8.695652173913047%" height="10"></td>
+  </tr></table>
+  </td>
+  <td class="ItemReportHigh" width="10%">91.3 %</td>
+  <td class="ItemReportHigh" width="10%">21 / 23</td>
+  <td class="ItemReportHigh" width="10%">0 / 23</td>
+</tr>
+    </tbody>
+</table>
+</center>
 
-</div></a><a name="28"><span class="lineNumber">      28 </span>      ),</a>
-<a name="29"><span class="lineNumber">      29 </span>    );</a>
-<a name="30"><span class="lineNumber">      30 </span>  }</a>
-<a name="31"><span class="lineNumber">      31 </span>}</a>
-<a name="32"><span class="lineNumber">      32 </span></a>
-</pre>
-<script>
-var coll = document.getElementsByClassName("collapsible");
-var i;
 
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.maxHeight){
-      content.style.maxHeight = null;
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px";
-    }
-	for (k = 0; k < coll.length; k++) {
-      var content2 = coll[k].nextElementSibling;
-      if (content2.style.maxHeight && content.parentElement == content2){
-      content2.style.maxHeight = content2.scrollHeight + content.scrollHeight + "px";
-    }
-      
-    }
-    
-  });
-}
-</script><table width ="100%" cellspacing="0" border="0">
+<table width ="100%" cellspacing="0" border="0">
   <tr><td><hr class="ruler"/></td></tr>
   <tr><td class="footer">Generated by mutation-test version: 1.6.0</td></tr>
 </table>
