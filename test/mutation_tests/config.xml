@@ -79,6 +79,6 @@
 
   <commands>
     <!-- Comandos para ejecutar las pruebas -->
-    <command group="test" expected-return="0" working-directory="." timeout="5000">flutter test test/presentation/providers/counter_provider_test.dart/</command>
+    <command group="test" expected-return="0" working-directory="." timeout="5000">flutter test test/domain/usecases/counter_usecases_test.dart/</command>
   </commands>
 </mutations>
